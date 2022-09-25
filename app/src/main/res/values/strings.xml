@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BookReaderApp</string>
+    <string name="splash_screen_text">Read and Change Yourself</string>
+    <string name="sure"> Are you sure you want to delete this book?</string>
+    <string name="action"> This action is not reversible</string>
+    <string name="create_account"> Please enter a valid email and password that is at least 6 characters</string>
+</resources>

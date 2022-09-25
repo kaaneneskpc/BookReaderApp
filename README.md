@@ -15,7 +15,7 @@ Book Reader App with Using Compose
 <li><a href="https://developer.android.com/jetpack">Jetpack Components</a> ViewModel, LiveData, DataBinding and more </li>
 <li><a href="https://developer.android.com/studio/test">Testing</a> ViewModel, LiveData, DataBinding and more component are testing for best result of app </li>
 <li><a href="https://developer.android.com/studio/test">Testing</a> ViewModel, LiveData, DataBinding and more component are testing for best result of app </li>
-<li><a href="https://firebase.google.com/"> Firebase</a>Firebase is an app development platform that helps you build and grow apps and games users love. Backed by Google and trusted by millions of businesses around the world. </li>
+<li><a href="https://firebase.google.com/">Firebase</a> Firebase is an app development platform that helps you build and grow apps and games users love. Backed by Google and trusted by millions of businesses around the world. </li>
 
 </ul>
 
@@ -28,6 +28,7 @@ Book Reader App with Using Compose
 <li>Responsive layout design, vertical and horizontal usage</li>
 <li>Good state handling</li>
 <li>Easy Test Implementation</li>
+<li>Easy Storage and Login Implementation with Firebase</li>
 </ul>
 
 # Screenshoots 📷 

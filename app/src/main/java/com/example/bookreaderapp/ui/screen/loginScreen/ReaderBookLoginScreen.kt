@@ -20,11 +20,11 @@ import com.example.bookreaderapp.MainActivity.Companion.LOGIN
 import com.example.bookreaderapp.MainActivity.Companion.NEW_USER
 import com.example.bookreaderapp.MainActivity.Companion.SIGN_UP
 import com.example.bookreaderapp.components.*
-
+import com.example.bookreaderapp.navigation.ReaderBookScreens
 
 
 @Composable
-fun ReaderBookLoginScreen(navController: NavHostController) {
+fun ReaderBookLoginScreen(navController: NavHostController, loginScreenViewModel: ReaderBookLoginScreenViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
     val showLoginForm = rememberSaveable { mutableStateOf(true) }
     Surface(modifier = Modifier.fillMaxSize()) {
         Column(
@@ -32,12 +32,16 @@ fun ReaderBookLoginScreen(navController: NavHostController) {
             verticalArrangement = Arrangement.Top
         ) {
             ReaderLogo()
-            if (showLoginForm.value) UserForm(loading = false, isCreateAccount = false) {email, password ->
-                    // TODO : FB Login
+            if (showLoginForm.value) UserForm(loading = false, isCreateAccount = false) { email, password ->
+                loginScreenViewModel.signInWithEmailAndPassword(email, password) {
+                    navController.navigate(ReaderBookScreens.HomeScreen.name)
+                }
             } else {
-                UserForm(loading = false, isCreateAccount = true) {email, password ->
-                    // TODO : Create FB Account
-            }
+                UserForm(loading = false, isCreateAccount = true) { email, password ->
+                    loginScreenViewModel.createUserWithEmailAndPassword(email, password) {
+                        navController.navigate(ReaderBookScreens.HomeScreen.name)
+                    }
+                }
             }
         }
         Spacer(modifier = Modifier.height(40.dp))

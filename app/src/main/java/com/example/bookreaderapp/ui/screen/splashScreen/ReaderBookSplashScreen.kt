@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.bookreaderapp.components.ReaderLogo
 import com.example.bookreaderapp.navigation.ReaderBookScreens
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.delay
 
 @Composable
@@ -39,9 +40,9 @@ fun ReaderBookSplashScreen(navController: NavController) {
         navController.navigate(ReaderBookScreens.LoginScreen.name)
 
         /* if (FirebaseAuth.getInstance().currentUser?.email.isNullOrEmpty()) {
-            navController.navigate(ReaderScreens.LoginScreen.name)
+            navController.navigate(ReaderBookScreens.LoginScreen.name)
         } else {
-            navController.navigate(ReaderScreens.ReaderHomeScreen.name)
+            navController.navigate(ReaderBookScreens.HomeScreen.name)
         } */
     }
 

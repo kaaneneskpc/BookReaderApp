@@ -7,11 +7,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.example.bookreaderapp.MainActivity.Companion.READER_BOOK
 
 @Composable
 fun ReaderLogo(modifier: Modifier = Modifier) {
     Text(
-        text = "Reader",
+        text = READER_BOOK,
         modifier = modifier.padding(bottom = 16.dp),
         style = MaterialTheme.typography.h3,
         color = Color.Red.copy(alpha = 0.5f)

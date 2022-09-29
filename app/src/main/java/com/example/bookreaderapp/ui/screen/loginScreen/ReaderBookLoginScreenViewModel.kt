@@ -3,7 +3,7 @@ package com.example.bookreaderapp.ui.screen.loginScreen
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.bookreaderapp.model.MUser
+import com.example.bookreaderapp.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -57,7 +57,7 @@ class ReaderBookLoginScreenViewModel : ViewModel() {
    private fun createUser(displayName: String?) {
         val userId = auth.currentUser?.uid
 
-        val user = MUser(userId = userId.toString(),
+        val user = User(userId = userId.toString(),
            displayName = displayName.toString(),
            avatarUrl = "",
            quote = "Life is great",

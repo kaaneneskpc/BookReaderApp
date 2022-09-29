@@ -39,11 +39,11 @@ fun ReaderBookSplashScreen(navController: NavController) {
         delay(2000L)
         navController.navigate(ReaderBookScreens.LoginScreen.name)
 
-        /* if (FirebaseAuth.getInstance().currentUser?.email.isNullOrEmpty()) {
+        if (FirebaseAuth.getInstance().currentUser?.email.isNullOrEmpty()) {
             navController.navigate(ReaderBookScreens.LoginScreen.name)
         } else {
             navController.navigate(ReaderBookScreens.HomeScreen.name)
-        } */
+        }
     }
 
 

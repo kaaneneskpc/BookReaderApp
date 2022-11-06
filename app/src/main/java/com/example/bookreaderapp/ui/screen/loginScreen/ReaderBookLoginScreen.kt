@@ -14,13 +14,13 @@ import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.bookreaderapp.MainActivity.Companion.CREATE_ACCOUNT
-import com.example.bookreaderapp.MainActivity.Companion.CREATE_ACCOUNT_INFO
-import com.example.bookreaderapp.MainActivity.Companion.LOGIN
-import com.example.bookreaderapp.MainActivity.Companion.NEW_USER
-import com.example.bookreaderapp.MainActivity.Companion.SIGN_UP
 import com.example.bookreaderapp.components.*
 import com.example.bookreaderapp.navigation.ReaderBookScreens
+import com.example.bookreaderapp.utils.Constants.CREATE_ACCOUNT
+import com.example.bookreaderapp.utils.Constants.CREATE_ACCOUNT_INFO
+import com.example.bookreaderapp.utils.Constants.LOGIN
+import com.example.bookreaderapp.utils.Constants.NEW_USER
+import com.example.bookreaderapp.utils.Constants.SIGN_UP
 
 
 @Composable

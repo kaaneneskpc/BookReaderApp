@@ -11,7 +11,7 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
-class ReaderBookLoginScreenViewModel : ViewModel() {
+class ReaderBookLoginScreenViewModel: ViewModel() {
 
     private val auth: FirebaseAuth = Firebase.auth
 

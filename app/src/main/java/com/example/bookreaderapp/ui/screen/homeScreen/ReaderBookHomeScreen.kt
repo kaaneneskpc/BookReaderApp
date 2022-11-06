@@ -1,7 +1,5 @@
 package com.example.bookreaderapp.ui.screen.homeScreen
 
-import android.telecom.Call
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
@@ -11,45 +9,35 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Logout
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.StarBorder
 import androidx.compose.material.icons.rounded.FavoriteBorder
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.key.Key.Companion.Home
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import coil.compose.rememberImagePainter
-import com.example.bookreaderapp.MainActivity.Companion.READER_BOOK
-import com.example.bookreaderapp.MainActivity.Companion.READING_LIST
-import com.example.bookreaderapp.MainActivity.Companion.YOUR_READING
 import com.example.bookreaderapp.components.BookRating
+import com.example.bookreaderapp.components.ReaderAppBar
 import com.example.bookreaderapp.components.RoundedButton
 import com.example.bookreaderapp.components.TitleSection
 import com.example.bookreaderapp.model.Book
 import com.example.bookreaderapp.navigation.ReaderBookScreens
-import com.example.bookreaderapp.ui.screen.loginScreen.ReaderBookLoginScreenViewModel
-import com.google.firebase.auth.FirebaseAuth
+import com.example.bookreaderapp.utils.Constants.READER_BOOK
+import com.example.bookreaderapp.utils.Constants.READING_LIST
+import com.example.bookreaderapp.utils.Constants.YOUR_READING
 
 @Composable
-fun ReaderBookHomeScreen(navController: NavHostController) {
+fun ReaderBookHomeScreen(navController: NavController = NavController(LocalContext.current)) {
     Scaffold(topBar = {
-        ReaderAppBar(title = READER_BOOK, navController = navController)
+        ReaderAppBar(title = READER_BOOK, navController = navController as NavHostController)
     }, floatingActionButton = {
-        FabContent{}
+        FabContent{ navController.navigate(ReaderBookScreens.SearchScreen.name) }
     }) {
         Surface(modifier = Modifier.fillMaxSize()) {
             HomeContent(navController = navController)
@@ -74,40 +62,6 @@ fun HomeContent(navController: NavController) {
        TitleSection(label = READING_LIST)
         BookListArea(listOfBooks = listOfBooks, navController = navController)
     }
-}
-
-@Composable
-fun ReaderAppBar(title: String, navController: NavHostController) {
-
-    TopAppBar(
-        title = {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Image(imageVector = Icons.Default.Person, contentDescription = "", modifier = Modifier
-                        .clip(RoundedCornerShape(12.dp))
-                        .scale(0.9f)
-                        .clickable {
-                            navController.navigate(ReaderBookScreens.StatsScreen.name)
-                        })
-
-                    Spacer(modifier = Modifier.width(20.dp))
-                    Text(text = title, color = Color.Red.copy(alpha = 0.7f), style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 20.sp))
-                    Spacer(modifier = Modifier.width(120.dp))
-
-                }
-        },
-        actions = {
-                  IconButton(onClick = {
-                      FirebaseAuth.getInstance().signOut().run {
-                          navController.navigate(ReaderBookScreens.LoginScreen.name)
-                      }
-                  }) {
-                      Icon(imageVector = Icons.Filled.Logout, contentDescription = "Logout")
-                  }
-        },
-        backgroundColor = Color.Transparent,
-        elevation = 0.dp
-    )
-
 }
 
 @Composable
@@ -268,8 +222,6 @@ fun FabContent(onTap: (String) -> Unit) {
     FloatingActionButton(onClick = { onTap("") },
         shape = RoundedCornerShape(50.dp),
         backgroundColor = Color.Magenta) {
-
         Icon(imageVector = Icons.Default.Add, contentDescription = "Add a Book", tint = MaterialTheme.colors.onSecondary)
-
     }
 }

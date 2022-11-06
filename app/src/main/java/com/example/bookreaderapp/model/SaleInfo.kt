@@ -1,11 +1,11 @@
 package com.example.bookreaderapp.model
 
 data class SaleInfo(
-    val buyLink: String,
-    val country: String,
-    val isEbook: Boolean,
-    /* val listPrice: ListPrice,
-    val offers: List<Offer>,
-    val retailPrice: RetailPriceX, */
-    val saleability: String
+     var buyLink: String,
+     var country: String,
+     var isEbook: Boolean,
+     var listPrice: ListPrice,
+     var offers: List<Offer>,
+     var retailPrice: RetailPrice,
+     var saleability: String
 )

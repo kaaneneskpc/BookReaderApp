@@ -1,10 +1,10 @@
 package com.example.bookreaderapp.model
 
-data class Item(val accessInfo: AccessInfo,
-                val etag: String,
-                val id: String,
-                val kind: String,
-                val saleInfo: SaleInfo,
-                val searchInfo: SearchInfo,
-                val selfLink: String,
-                val volumeInfo: VolumeInfo)
+data class Item(var accessInfo: AccessInfo,
+                var etag: String,
+                var id: String,
+                var kind: String,
+                var saleInfo: SaleInfo,
+                var searchInfo: SearchInfo,
+                var selfLink: String,
+                var volumeInfo: VolumeInfo)

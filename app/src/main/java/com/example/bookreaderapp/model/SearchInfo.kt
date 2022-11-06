@@ -1,3 +1,3 @@
 package com.example.bookreaderapp.model
 
-data class SearchInfo(val textSnippet: String)
+data class SearchInfo(var textSnippet: String)

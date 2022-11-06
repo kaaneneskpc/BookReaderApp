@@ -1,6 +1,6 @@
 package com.example.bookreaderapp.model
 
-data class Book(val id: String? = null ,
-                val title: String? = null,
-                val authors: String? = null,
-                val notes: String? = null)
+data class Book(var id: String? = null ,
+                var title: String? = null,
+                var authors: String? = null,
+                var notes: String? = null)

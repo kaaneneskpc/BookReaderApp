@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.example.bookreaderapp.MainActivity.Companion.READER_BOOK
+import com.example.bookreaderapp.utils.Constants.READER_BOOK
 
 @Composable
 fun ReaderLogo(modifier: Modifier = Modifier) {

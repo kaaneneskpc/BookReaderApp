@@ -1,5 +1,6 @@
 package com.example.bookreaderapp.ui.screen.searchScreen
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -22,17 +23,16 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import coil.compose.rememberImagePainter
 import com.example.bookreaderapp.components.InputField
 import com.example.bookreaderapp.components.ReaderAppBar
-import com.example.bookreaderapp.model.Book
 import com.example.bookreaderapp.model.Item
 import com.example.bookreaderapp.navigation.ReaderBookScreens
 import com.example.bookreaderapp.utils.Constants.SEARCH_BOOK
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun ReaderBookSearchScreen(navController: NavHostController, viewModel: ReaderBookSearchScreenViewModel = hiltViewModel()) {
     Scaffold(topBar = {
@@ -96,7 +96,6 @@ fun BookList(navController: NavController, viewModel: ReaderBookSearchScreenView
             horizontalArrangement = Arrangement.SpaceAround,
             verticalAlignment = Alignment.CenterVertically) {
             LinearProgressIndicator()
-            Text(text = "Loading...")
         }
 
     }else {
@@ -117,7 +116,7 @@ fun BookList(navController: NavController, viewModel: ReaderBookSearchScreenView
 fun BookRow(book: Item, navController: NavController) {
     Card(modifier = Modifier
         .clickable {
-            // navController.navigate(ReaderBookScreens.DetailScreen.name + "/${book.id}")
+            navController.navigate(ReaderBookScreens.DetailScreen.name + "/${book.id}")
         }
         .fillMaxWidth()
         .height(100.dp)
